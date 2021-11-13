@@ -22,4 +22,9 @@ enum Enum_Fase{
     nula = ""
 }
 
-export { Enum_Rol, Enum_Estado, Enum_EstadoProyecto, Enum_Fase };
+enum Enum_Tipo{
+    general = "General",
+    especifico = "Específico"
+}
+
+export { Enum_Rol, Enum_Estado, Enum_EstadoProyecto, Enum_Fase, Enum_Tipo };

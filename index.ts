@@ -15,8 +15,8 @@ const main = async () => {
     }); */
 
     // Traer información recursivamente de otras colecciones
-    const proyecto = await ProjectModel.find({ nombre: 'Proyecto MinTIC 2' }).populate('lider');
-    console.log(proyecto);
+    /* const proyecto = await ProjectModel.find({ nombre: 'Proyecto MinTIC 2' }).populate('lider');
+    console.log(proyecto); */
 };
 
 main();

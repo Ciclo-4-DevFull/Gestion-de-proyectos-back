@@ -1,22 +1,39 @@
 import conectarBD from "./db/db";
 import { UserModel } from "./models/user";
-import { Enum_Rol } from "./models/enums"; 
+import { Enum_Rol, Enum_Tipo } from "./models/enums"; 
 import { ProjectModel } from "./models/project";
 
 const main = async () => {
     conectarBD();
 
-/*     ProjectModel.create({
+    /* ProjectModel.create({
         nombre: "Proyecto MinTIC 2",
         presupuesto: 230,
         inicio: Date.now(),
         fin: new Date('2022/11/10'),
-        lider: '6190098cefe35caff4c09ba5'
-    }); */
+        lider: '6190098cefe35caff4c09ba5',
+        objetivos: [
+            { descripcion: "Descripción del objetivo general", tipo: Enum_Tipo.general},
+            { descripcion: "Descripción del objetivo específico 1", tipo: Enum_Tipo.especifico},
+            { descripcion: "Descripción del objetivo específico 2", tipo: Enum_Tipo.especifico}
+        ]
+    }); */ 
 
-    // Traer información recursivamente de otras colecciones
-    /* const proyecto = await ProjectModel.find({ nombre: 'Proyecto MinTIC 2' }).populate('lider');
-    console.log(proyecto); */
+
+    /*ProjectModel.aggregate([
+        {
+            $lookup: {
+                from: 'objectives',
+                localField: '_id',
+                foreignField: 'proyecto',
+                as: 'objetivos'
+            },
+        },
+        {
+            $unwind: "$objetivos",
+        },
+    ]).then((u) => {console.log(u)}); */
+
 };
 
 main();
@@ -24,6 +41,11 @@ main();
 
 
 
+
+
+    // Traer información recursivamente de otras colecciones
+    /* const proyecto = await ProjectModel.find({ nombre: 'Proyecto MinTIC 2' }).populate('lider');
+    console.log(proyecto); */
 
 // CRUD USUARIOS
 

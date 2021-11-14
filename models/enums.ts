@@ -27,4 +27,9 @@ enum Enum_Tipo{
     especifico = "Específico"
 }
 
-export { Enum_Rol, Enum_Estado, Enum_EstadoProyecto, Enum_Fase, Enum_Tipo };
+enum Enum_EstadoInscripcion{
+    aceptada = "Aceptada",
+    rechadaza = "Rechazada"
+}
+
+export { Enum_Rol, Enum_Estado, Enum_EstadoProyecto, Enum_Fase, Enum_Tipo, Enum_EstadoInscripcion };

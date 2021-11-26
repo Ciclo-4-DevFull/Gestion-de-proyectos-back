@@ -11,20 +11,20 @@ enum Enum_Estado{
 }
 
 enum Enum_EstadoProyecto{
-    activo = "Activo",
-    inactivo = "Inactivo"   
+    ACTIVO =     "ACTIVO",
+    INACTIVO = "INACTIVO"   
 }
 
 enum Enum_Fase{
-    iniciado = "Iniciado",
-    desarrollo = "En desarrollo",
-    terminado = "Terminado",
-    nula = ""
+    INICIADO = "INICIADO",
+    DESARROLLO = "DESARROLLO",
+    TERMINADO = "TERMINADO",
+    NULO = ""
 }
 
 enum Enum_Tipo{
-    general = "General",
-    especifico = "Específico"
+    GENERAL = "GENERAL",
+    ESPECIFICO = "ESPECIFICO"
 }
 
 enum Enum_EstadoInscripcion{

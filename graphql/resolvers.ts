@@ -1,3 +1,4 @@
+import { ProjectModel } from "../models/project";
 import { UserModel } from "../models/user";
 
 const resolvers = {
@@ -11,7 +12,12 @@ const resolvers = {
         Usuario: async (parent, args) => {
             const usuario = await UserModel.findOne({_id: args._id})
             return usuario;
-        }
+        },
+
+        Proyectos: async (parent, args) => {
+            const proyectos = await ProjectModel.find().populate('lider');
+            return proyectos;
+        },
     },
 
     Mutation: {
@@ -47,6 +53,20 @@ const resolvers = {
             const usuarioEliminado = await UserModel.findByIdAndDelete(args._id)
             return usuarioEliminado;
         },
+
+        crearProyecto: async(parent, args) => {
+            const proyectoCreado = await ProjectModel.create({
+                nombre: args.nombre,
+                presupuesto: args.presupuesto,
+                inicio: args.inicio,
+                fin: args.fin,
+                estado: args.estado,
+                fase: args.fase,
+                lider: args.lider,
+                objetivos: args.objetivos
+            })
+            return proyectoCreado
+        }
     },
 };
 

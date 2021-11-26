@@ -1,24 +1,24 @@
-import conectarBD from "./db/db";
-import { UserModel } from "./models/user";
-import { Enum_EstadoInscripcion, Enum_Rol, Enum_Tipo } from "./models/enums";
-import { ProjectModel } from "./models/project";
-import { InscriptionModel } from "./models/incription";
-import { AdvanceModel } from "./models/advance";
+// import conectarBD from "./db/db";
+// import { UserModel } from "./models/user";
+// import { Enum_EstadoInscripcion, Enum_Rol, Enum_Tipo } from "./models/enums";
+// import { ProjectModel } from "./models/project";
+// import { InscriptionModel } from "./models/incription";
+// import { AdvanceModel } from "./models/advance";
 
-const main = async () => {
-    conectarBD();
+// const main = async () => {
+//     conectarBD();
 
-    /* await UserModel.find().then((u) => {
-        console.log('usuarios: ', u);
-    }).catch((e) => {
-        console.error('error obteniendo los usuarios ', e);
-    }); */
+//     /* await UserModel.find().then((u) => {
+//         console.log('usuarios: ', u);
+//     }).catch((e) => {
+//         console.error('error obteniendo los usuarios ', e);
+//     }); */
 
-    const proyecto = await ProjectModel.find({ nombre: 'Proyecto MinTIC 2' }).populate('lider');
-    console.log(proyecto)
-};
+//     const proyecto = await ProjectModel.find({ nombre: 'Proyecto MinTIC 2' }).populate('lider');
+//     console.log(proyecto)
+// };
 
-main();
+// main();
 
 
 

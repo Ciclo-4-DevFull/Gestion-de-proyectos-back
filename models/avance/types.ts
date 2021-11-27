@@ -23,6 +23,16 @@ type Mutation{
         creadoPor: String!
     ):Avance
 
+    agregarObservaciones(
+        _id: String!
+        observaciones: String!
+    ): Avance
+
+    modificarAvance(
+        _id: String!
+        descripcion: String!    
+    ): Avance
+
 }
 `
 export { typesAdvance };

@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
-import { ProjectModel } from "./project";
-import { UserModel } from "./user";
+import { ProjectModel } from "../proyecto/project";
+import { UserModel } from "../usuario/user";
 
 interface Avance{
     proyecto: Schema.Types.ObjectId;

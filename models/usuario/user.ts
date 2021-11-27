@@ -51,7 +51,16 @@ const userSchema = new Schema<User>({
         enum: Enum_Estado,
         default: Enum_Estado.PENDIENTE,
     }
+}, {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
 });
+
+userSchema.virtual('proyectos', {
+    ref: "Proyecto",
+    localField: "_id",
+    foreignField: "lider"
+})
 
 const UserModel = model("User", userSchema);
 

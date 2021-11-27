@@ -7,7 +7,7 @@ interface Inscripcion{
     proyecto: Schema.Types.ObjectId;
     estudiante: Schema.Types.ObjectId;
     estado: Enum_EstadoInscripcion;
-    ingreso: Date;
+    ingreso: any;
     egreso: Date;
 }
 
@@ -17,12 +17,10 @@ const inscriptionSchema = new Schema<Inscripcion>({
         enum: Enum_EstadoInscripcion,
     },
     ingreso: {
-        type: Date,
-        required: true,
+        type: Date
     },
     egreso: {
-        type: Date,
-        required: true,
+        type: Date
     },
     proyecto: {
         type: Schema.Types.ObjectId,

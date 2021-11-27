@@ -28,8 +28,9 @@ enum Enum_Tipo{
 }
 
 enum Enum_EstadoInscripcion{
-    aceptada = "Aceptada",
-    rechadaza = "Rechazada"
+    ACEPTADO = "ACEPTADO",
+    RECHAZADO = "RECHAZADO",
+    PENDIENTE = "PENDIENTE"
 }
 
 export { Enum_Rol, Enum_Estado, Enum_EstadoProyecto, Enum_Fase, Enum_Tipo, Enum_EstadoInscripcion };

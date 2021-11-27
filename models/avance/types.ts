@@ -15,7 +15,6 @@ type Query{
 
 type Mutation{
     crearAvance(
-        _id: ID!
         fecha: Date!
         descripcion: String!
         proyecto: String!

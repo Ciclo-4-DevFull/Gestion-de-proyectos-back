@@ -5,9 +5,14 @@ const resolversProject = {
     Query: {
         Proyectos: async (parent, args) => {
             const proyectos = await ProjectModel.find()
-            .populate('avances')
+            .populate({
+                path: 'avances',
+                populate: {
+                    path: 'creadoPor'
+                }
+            })
             .populate('inscripciones')
-            .populate('lider');
+            .populate('lider')
             return proyectos;
         },
     },

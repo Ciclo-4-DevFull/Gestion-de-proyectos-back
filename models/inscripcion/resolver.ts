@@ -23,7 +23,8 @@ const resolverInscriptions = {
             const inscripcionAprobada = await InscriptionModel.findByIdAndUpdate(args._id, {
                 estado: Enum_EstadoInscripcion.ACEPTADO,
                 ingreso: Date.now(),
-            });
+            }, 
+            { new: true });
             return inscripcionAprobada;
         }
     }

@@ -38,7 +38,8 @@ const resolversProject = {
                 fase: args.fase,
                 lider: args.lider,
                 objetivos: args.objetivos
-            });
+            }, 
+            { new: true });
             return proyectoEditado;
         },
     },

@@ -39,7 +39,8 @@ const resolverUser = {
                 identificacion: args.identificacion,
                 rol: args.rol,
                 estado: args.estado
-            });
+            },
+            { new: true });
             return usuarioEditado;
         },
 

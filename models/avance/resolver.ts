@@ -27,14 +27,16 @@ const resolversAdvance = {
         agregarObservaciones: async (parent, args) => {
             const comentarios = await AdvanceModel.findByIdAndUpdate(args._id, {
                 observaciones: args.observaciones
-            });
+            },
+            { new: true });
             return comentarios;
         },
 
         modificarAvance: async (parent, args) => {
             const avanceEditado = await AdvanceModel.findByIdAndUpdate(args._id, {
                 descripcion: args.descripcion
-            });
+            },
+            { new: true });
             return avanceEditado;
         }
 

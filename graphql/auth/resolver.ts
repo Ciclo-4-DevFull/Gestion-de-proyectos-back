@@ -39,14 +39,31 @@ const resolversAuth = {
                         apellido: buscarUsuario.apellido,
                         identificacion: buscarUsuario.identificacion,
                         correo: buscarUsuario.correo,
-                        rol: buscarUsuario.rol
+                        rol: buscarUsuario.rol,
+                        estado: buscarUsuario.estado
                     })
                 }
             };
         },
 
-        validateToken: async (parent, args, context) => {
-            console.log(context);
+        refreshToken: async (parent, args, context) => {
+            if(!context.UserData){
+                return {
+                    error: 'Token no válido'
+                }
+            } else {
+                return {
+                    token: generateToken({
+                        _id: context.UserData._id,
+                        nombre: context.UserData.nombre,
+                        apellido: context.UserData.apellido,
+                        identificacion: context.UserData.identificacion,
+                        correo: context.UserData.correo,
+                        rol: context.UserData.rol,
+                        estado: context.UserData.estado
+                    })
+                }
+            }
         }
 
     },

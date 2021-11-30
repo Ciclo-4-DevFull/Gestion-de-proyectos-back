@@ -17,6 +17,13 @@ const typesAuth = gql`
             rol: Enum_Rol!
             estado: Enum_Estado
         ): Token
+
+        login(
+            correo: String!
+            password: String!
+        ): Token
+
+        validateToken: Token
     }
 `;
 

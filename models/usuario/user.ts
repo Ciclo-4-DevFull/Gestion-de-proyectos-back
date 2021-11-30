@@ -5,6 +5,7 @@ interface User{
     nombre: string;
     apellido: string;
     correo: string;
+    password: string;
     identificacion: string;
     rol: Enum_Rol;
     estado: Enum_Estado;
@@ -35,6 +36,10 @@ const userSchema = new Schema<User>({
             },
             message: "Formato del correo erroneo"
         },
+    },
+    password: {
+        type: String,
+        required: true,
     },
     identificacion: {
         type: String,

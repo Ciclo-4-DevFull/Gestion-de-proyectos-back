@@ -23,6 +23,7 @@ const typesUser = gql`
             nombre: String!
             apellido: String!
             correo: String!
+            password: String!
             identificacion: String!
             rol: Enum_Rol!
             estado: Enum_Estado

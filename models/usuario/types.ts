@@ -13,8 +13,26 @@ const typesUser = gql`
         proyectos: [Proyecto]
     }
 
+    input consultaUsuario{
+        _id: ID
+        nombre: String
+        apellido: String
+        correo: String
+        identificacion: String
+        rol: Enum_Rol
+        estado: Enum_Estado
+    }
+
     type Query{
-        Usuarios: [Usuario]
+        Usuarios(
+            _id: ID
+            nombre: String
+            apellido: String
+            correo: String
+            identificacion: String
+            rol: Enum_Rol
+            estado: Enum_Estado
+        ): [Usuario]
         Usuario(_id: String!): Usuario
     }
 

@@ -5,13 +5,15 @@ const resolverUser = {
 
     Query: {
         Usuarios: async (parent, args, context) => {
-            if (context.UserData.rol === 'ADMINISTRADOR'){
-                const usuarios = await UserModel.find();
-                return usuarios;
-            }else if (context.UserData.rol === 'LIDER'){
-                const usuarios = await UserModel.find({ rol: Enum_Rol.ESTUDIANTE });
-                return usuarios;
-            }
+            const usuarios = await UserModel.find(args);
+            return usuarios;
+            // if (context.UserData.rol === 'ADMINISTRADOR'){
+            //     const usuarios = await UserModel.find();
+            //     return usuarios;
+            // }else if (context.UserData.rol === 'LIDER'){
+            //     const usuarios = await UserModel.find({ rol: Enum_Rol.ESTUDIANTE });
+            //     return usuarios;
+            // }
         },
         
         Usuario: async (parent, args) => {

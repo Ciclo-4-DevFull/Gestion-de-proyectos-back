@@ -43,7 +43,12 @@ const resolversAuth = {
                         estado: buscarUsuario.estado
                     })
                 }
-            };
+            } else {
+                return {
+                    error: "Se obtuvo un error"
+                } 
+                    
+            }
         },
 
         refreshToken: async (parent, args, context) => {

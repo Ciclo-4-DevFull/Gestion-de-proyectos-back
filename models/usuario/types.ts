@@ -15,8 +15,6 @@ const typesUser = gql`
 
     input consultaUsuario{
         _id: ID
-        nombre: String
-        apellido: String
         correo: String
         identificacion: String
         rol: Enum_Rol
@@ -26,8 +24,6 @@ const typesUser = gql`
     type Query{
         Usuarios(
             _id: ID
-            nombre: String
-            apellido: String
             correo: String
             identificacion: String
             rol: Enum_Rol

@@ -27,8 +27,22 @@ const typesProject = gql`
         inscripciones: [Inscripcion]
     }
 
+    input consultaProyecto{
+        _id: ID
+        nombre: String
+        estado: Enum_EstadoProyecto
+        fase: Enum_Fase
+
+    }
+
     type Query{
-        Proyectos: [Proyecto]
+        Proyectos(
+            _id: ID
+            nombre: String
+            estado: Enum_EstadoProyecto
+            fase: Enum_Fase
+
+        ): [Proyecto]
     }
 
     type Mutation{

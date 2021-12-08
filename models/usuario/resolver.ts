@@ -1,17 +1,17 @@
-import { Enum_Rol } from "../enums/enums";
 import { UserModel } from "./user";
+import bcrypt from 'bcrypt';
 
 const resolverUser = {
 
     Query: {
         Usuarios: async (parent, args, context) => {
-            if (context.UserData.rol === 'ADMINISTRADOR'){
-                const usuarios = await UserModel.find();
-                return usuarios;
+            const usuarios = await UserModel.find();
+            return usuarios;
+            /* if (context.UserData.rol === 'ADMINISTRADOR'){
             }else if (context.UserData.rol === 'LIDER'){
                 const usuarios = await UserModel.find({ rol: Enum_Rol.ESTUDIANTE });
                 return usuarios;
-            }
+            } */
         },
         
         Usuario: async (parent, args) => {
@@ -38,16 +38,35 @@ const resolverUser = {
         },
 
         editarUsuario: async (parent, args) => {
-            const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
-                nombre: args.nombre,
-                apellido: args.apellido,
-                correo: args.correo,
-                identificacion: args.identificacion,
-                rol: args.rol,
-                estado: args.estado
-            },
-            { new: true });
-            return usuarioEditado;
+
+            if(!args.password){
+                const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
+                    nombre: args.nombre,
+                    apellido: args.apellido,
+                    correo: args.correo,
+                    identificacion: args.identificacion,
+                    rol: args.rol,
+                    estado: args.estado
+                },
+                { new: true });
+                return usuarioEditado;
+            }else{
+
+                const salt = await bcrypt.genSalt(10);
+                const hashedPassword = await bcrypt.hash(args.password, salt)
+
+                const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
+                    nombre: args.nombre,
+                    apellido: args.apellido,
+                    correo: args.correo,
+                    identificacion: args.identificacion,
+                    rol: args.rol,
+                    estado: args.estado,
+                    password: hashedPassword
+                },
+                { new: true });
+                return usuarioEditado;
+            }
         },
 
         eliminarUsuario: async (parent, args) => {

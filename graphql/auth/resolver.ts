@@ -31,23 +31,28 @@ const resolversAuth = {
 
         login: async (parent, args) => {
             const buscarUsuario = await UserModel.findOne({ correo: args.correo })
-            if(await bcrypt.compare(args.password, buscarUsuario.password)){
-                return {
-                    token: generateToken({
-                        _id: buscarUsuario._id,
-                        nombre: buscarUsuario.nombre,
-                        apellido: buscarUsuario.apellido,
-                        identificacion: buscarUsuario.identificacion,
-                        correo: buscarUsuario.correo,
-                        rol: buscarUsuario.rol,
-                        estado: buscarUsuario.estado
-                    })
+            if(buscarUsuario !== null){
+                if(await bcrypt.compare(args.password, buscarUsuario.password)){
+                    return {
+                        token: generateToken({
+                            _id: buscarUsuario._id,
+                            nombre: buscarUsuario.nombre,
+                            apellido: buscarUsuario.apellido,
+                            identificacion: buscarUsuario.identificacion,
+                            correo: buscarUsuario.correo,
+                            rol: buscarUsuario.rol,
+                            estado: buscarUsuario.estado
+                        })
+                    }
+                } else {
+                    return {
+                        error: "Se obtuvo un error"
+                    }        
                 }
-            } else {
+            }else{
                 return {
                     error: "Se obtuvo un error"
-                } 
-                    
+                }
             }
         },
 

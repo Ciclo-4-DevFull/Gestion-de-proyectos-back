@@ -10,6 +10,7 @@ const typesUser = gql`
         identificacion: String!
         rol: Enum_Rol!
         estado: Enum_Estado!
+        password: String
         proyectos: [Proyecto]
     }
 
@@ -37,6 +38,7 @@ const typesUser = gql`
             identificacion: String!
             rol: Enum_Rol!
             estado: Enum_Estado!
+            password: String
         ): Usuario
 
         eliminarUsuario(_id: String!): Usuario

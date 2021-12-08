@@ -19,7 +19,7 @@ enum Enum_Fase{
     INICIADO = "INICIADO",
     DESARROLLO = "DESARROLLO",
     TERMINADO = "TERMINADO",
-    NULO = ""
+    NULO = "NULO"
 }
 
 enum Enum_Tipo{

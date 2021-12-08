@@ -22,7 +22,7 @@ const typesProject = gql`
         estado: Enum_EstadoProyecto
         fase: Enum_Fase
         lider: Usuario!
-        objetivos: [Objetivo]
+        objetivos: [Objetivo]!
         avances: [Avance]
         inscripciones: [Inscripcion]
     }
@@ -55,7 +55,7 @@ const typesProject = gql`
             estado: Enum_EstadoProyecto
             fase: Enum_Fase
             lider: String!
-            objetivos: [crearObjetivo]
+            objetivos: [crearObjetivo]!
         ): Proyecto
 
         editarProyecto(

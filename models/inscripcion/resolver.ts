@@ -5,7 +5,7 @@ const resolverInscriptions = {
 
     Query: {
         Inscripciones: async (parent, args) => {
-            const inscripciones = await InscriptionModel.find().populate('estudiante');
+            const inscripciones = await InscriptionModel.find(args).populate('estudiante');
             return inscripciones;
         },
     },

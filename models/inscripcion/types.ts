@@ -11,8 +11,17 @@ const typesInscription = gql`
         estudiante: Usuario!
     }
 
+    input consultaInscripcion{
+        _id: ID
+        estado: Enum_EstadoInscripcion
+    }
+
     type Query{
-        Inscripciones: [Inscripcion]
+        Inscripciones(
+            _id: ID
+            estado: Enum_EstadoInscripcion
+        ): [Inscripcion]
+        Inscripcion(_id: String!): Inscripcion
     },
 
     type Mutation{

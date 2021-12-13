@@ -27,6 +27,14 @@ const resolverInscriptions = {
             }, 
             { new: true });
             return inscripcionAprobada;
+        },
+
+        rechazarInscripcion: async (parent, args) => {
+            const inscripcionRechazada = await InscriptionModel.findByIdAndUpdate(args._id, {
+                estado: Enum_EstadoInscripcion.RECHAZADO,
+            }, 
+            { new: true });
+            return inscripcionRechazada;
         }
     }
 }

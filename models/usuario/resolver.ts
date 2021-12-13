@@ -10,7 +10,14 @@ const resolverUser = {
         },
         
         Usuario: async (parent, args) => {
-            const usuario = await (await UserModel.findOne({_id: args._id})).populate('proyectos')
+            const usuario = await UserModel.findOne({_id: args._id})
+            .populate('proyectos')
+            .populate({
+                path: 'inscripciones',
+                populate: {
+                    path: 'proyecto'
+                }
+            })
             return usuario;
         },
     },

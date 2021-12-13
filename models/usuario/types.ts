@@ -12,6 +12,7 @@ const typesUser = gql`
         estado: Enum_Estado!
         password: String
         proyectos: [Proyecto]
+        inscripciones: [Inscripcion]
     }
 
     input consultaUsuario{

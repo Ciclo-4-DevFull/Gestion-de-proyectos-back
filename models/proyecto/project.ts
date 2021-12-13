@@ -27,11 +27,9 @@ const projectSchema = new Schema<Proyecto>({
     },
     inicio: {
         type: Date,
-        required: true,
     }, 
     fin: {
         type: Date,
-        required: true,
     },
     estado: {
         type: String,

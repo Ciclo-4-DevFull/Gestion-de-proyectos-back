@@ -11,7 +11,12 @@ const resolversProject = {
                     path: 'creadoPor'
                 }
             })
-            .populate('inscripciones')
+            .populate({
+                path: 'inscripciones',
+                populate: {
+                    path: 'estudiante'
+                }
+            })
             .populate('lider')
             return proyectos;
         },

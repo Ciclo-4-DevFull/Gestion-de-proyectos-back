@@ -32,7 +32,7 @@ const typesProject = gql`
         nombre: String
         estado: Enum_EstadoProyecto
         fase: Enum_Fase
-
+        lider: String
     }
 
     type Query{
@@ -41,7 +41,7 @@ const typesProject = gql`
             nombre: String
             estado: Enum_EstadoProyecto
             fase: Enum_Fase
-
+            lider: String
         ): [Proyecto]
     }
 
